@@ -28,6 +28,7 @@ export default function Audio({ path, next, prev, title }) {
   const [speed, setSpeed] = useState(1.0);
   const [paused, setPaused] = useState(true);
   const [speedInput, setSpeedInput] = useState("1.0");
+  const [buffering, setBuffering] = useState(false);
 
   const playerRef = useRef();
 
@@ -51,10 +52,15 @@ export default function Audio({ path, next, prev, title }) {
   function updateProgress(progress) {
     setProgress(progress);
     setDuration(progress.playableDuration);
+    setBuffering(false);
 
     MusicControl.updatePlayback({
       // (STATE_ERROR, STATE_STOPPED, STATE_PLAYING, STATE_PAUSED, STATE_BUFFERING)
-      state: paused ? MusicControl.STATE_PAUSED : MusicControl.STATE_PLAYING,
+      state: buffering
+        ? MusicControl.STATE_BUFFERING
+        : paused
+        ? MusicControl.STATE_PAUSED
+        : MusicControl.STATE_PLAYING,
       speed,
       elapsedTime: progress.currentTime
     });
@@ -105,7 +111,7 @@ export default function Audio({ path, next, prev, title }) {
       <View style={styles.rowSpread}>
         {title && (
           <Text>
-            {"Playing: "}
+            {buffering ? "Buffering: " : "Playing: "}
             {title}
           </Text>
         )}
@@ -141,6 +147,7 @@ export default function Audio({ path, next, prev, title }) {
         onProgress={updateProgress}
         onEnd={e => next()}
         onError={e => console.log("VIDEO: ", e)}
+        onBuffer={() => setBuffering(true)}
       />
     </View>
   );

@@ -8,6 +8,7 @@ import {
   TextInput,
   SafeAreaView
 } from "react-native";
+import { orderBy } from "natural-orderby";
 
 import Audio from "./components/Audio";
 import { playlistUrl, serverHeaders } from "./urls";
@@ -28,11 +29,9 @@ export default function App() {
       const req = await fetch(playlistUrl, { headers: serverHeaders });
 
       const text = await req.text();
-      const lines = text
-        .split("\n")
-        .filter(s => s.length > 0)
-        .sort();
-      setPlaylist(lines.map((l, i) => ({ url: l, index: i })));
+      const lines = text.split("\n").filter(s => s.length > 0);
+      const linesSorted = orderBy(lines);
+      setPlaylist(linesSorted.map((l, i) => ({ url: l, index: i })));
     }
 
     loadPlaylist();
@@ -55,7 +54,7 @@ export default function App() {
   }
 
   const filteredPL = playlist.filter(
-    e => search === "" || e.url.includes(search)
+    e => search === "" || e.url.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
