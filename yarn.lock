@@ -5234,10 +5234,10 @@ react-native-gesture-handler@^1.3.0:
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
-react-native-music-control@^0.10.4:
-  version "0.10.4"
-  resolved "https://registry.yarnpkg.com/react-native-music-control/-/react-native-music-control-0.10.4.tgz#b66db5bba1a47dc7ac507cd37bbeb217376f76a3"
-  integrity sha512-aUaNzKR9uauEN7H8oVREgCK40NkUka336ScbA3V+VSBGM+63sZrSxWKaT6mfTK08KBaiuSH+njcCGaK1do76YA==
+react-native-music-control@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/react-native-music-control/-/react-native-music-control-0.11.0.tgz#571a8907843968478a8d4122d678c991e85cb3f9"
+  integrity sha512-BArIw7kK9eL4mj5jk3RmBFVMmz5rlJmXxD9KHurXYvKae5smdW1UK7RNtZaDfX2vFrGIjnMxCr/o95aBJthCrw==
 
 react-native-safe-area-view@^0.14.1:
   version "0.14.5"
