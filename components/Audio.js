@@ -124,6 +124,18 @@ export default function Audio({ path, next, prev, title }) {
           onPress={() => setSpeed(parseFloat(speedInput))}
           title={"Set"}
         />
+        <Button
+          onPress={() => setSpeed(parseFloat(1.0))}
+          title={"1.0"}
+        />
+        <Button
+          onPress={() => setSpeed(parseFloat(1.03))}
+          title={"1.03"}
+        />
+        <Button
+          onPress={() => setSpeed(parseFloat(1.08))}
+          title={"1.08"}
+        />
       </View>
 
       <View style={styles.rowSpread}>
