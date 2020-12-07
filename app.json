@@ -1,4 +1,10 @@
 {
   "displayName": "AudioPlayer",
-  "name": "AudioPlayer"
+  "name": "AudioPlayer",
+  "expo": {
+    "name": "AudioPlayer",
+    "slug": "AudioPlayer",
+    "version": "1.0.0",
+    "assetBundlePatterns": ["**/*"]
+  }
 }

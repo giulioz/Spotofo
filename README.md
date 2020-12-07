@@ -10,5 +10,4 @@ export const playlistUrl =
 export const serverHeaders = {
   Authorization: "Basic ....."
 };
-
 ```
